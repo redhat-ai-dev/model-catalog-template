@@ -14,6 +14,7 @@ The model server can be accessed [here]({{ values.modelServerURL }}).
 <!--
 If your model server has specific instructions to authneticate to it, add them here.
 -->
+{{ values.modelServerAuthentication }}
 
 ## **API Schema**
 <!--
@@ -22,8 +23,3 @@ We can use absolute paths to navigate the TechDocs to reference other resources/
 -->
 
 The API Schema is available [here](/catalog/default/api/{{ values.modelServerName }}/definition).
-
-## **Usage Examples**
-<!--
-Add usage examples to show case how the model server can be interacted with.
--->
