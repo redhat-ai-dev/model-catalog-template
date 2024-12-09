@@ -1,0 +1,16 @@
+{
+    "values": {
+        "modelServerName": "developer-model-service",
+        "modelServerDescription": "A 3scale-based model service for developers to use, using vllm.",
+        "modelServerURL": "https://example.com",
+        "modelServerAPIURL": "https://api.example.com",
+        "modelServerTags": ["3scale", "developer", "vllm"],
+        "modelServerAPI": true,
+        "modelServerAPIName": "model-service-api",
+        "modelServerAPIDescription": "The OpenAI based schema exposed by the developer model service",
+        "modelServerAPITags": ["openai", "openapi", "schema"],
+        "modelServerAPIType": "openapi",
+        "modelServerOwner": "exampleuser",
+        "modelServerAPISpec": "empty"
+    }
+}

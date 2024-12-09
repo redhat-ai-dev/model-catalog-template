@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: {{ values.modelServerName }}
+  annotations:
+    backstage.io/techdocs-ref: dir:./
+  description: '{{ values.modelServerDescription }}'
+  links:
+    - url: {{ values.modelServerURL }}
+      title: Access
+      type: website
+      icon: WebAssett
+    - url: {{ values.modelServerAPIURL }}
+      title: API URL
+      type: website
+      icon: WebAsset
+  tags: {{ values.modelServerTags }}
+spec:
+  type: model-server
+  owner: user:{{ values.modelServerOwner }}
+  lifecycle: production
+  {%- if values.modelServerAPI %}
+  providesApis:
+    - {{ values.modelServerAPIName }}
+  dependsOn:
+    - api:{{ values.modelServerAPIName }}
+  {%- endif %}
+  profile:
+    displayName: {{ values.modelServerDisplayName }}
+---
+{%- if values.modelServerAPI %}
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: {{ values.modelServerAPIName }}
+  description: '{{ values.modelServerAPIDescription }}'
+  tags: {{ values.modelServerAPITags }}
+spec:
+  type: {{ values.modelServerAPIType }}
+  owner: user:{{ values.modelServerOwner }}
+  lifecycle: production
+  definition: |
+    {{ values.modelServerAPISpec }}
+{%- endif %}
