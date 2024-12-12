@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: {{ values.modelName }}
+  annotations:
+    backstage.io/techdocs-ref: dir:{{ values.modelName }}
+  description: '{{ values.modelDescription }}'
+  links:
+    - url: {{ values.modelURL }}
+      title: Access
+      type: website
+      icon: WebAssett
+    - url: {{ values.modelServerAPIURL }}
+      title: API URL
+      type: website
+      icon: WebAsset
+    - url: {{ values.modelResourceURL }}
+      title: Model Repository
+      type: website
+      icon: WebAsset
+    - url: {{ values.modelLicenseURL }}
+      title: {{ values.modelLicense }} License
+      type: website
+      icon: WebAsset
+  tags: {{ values.modelTags }}
+spec:
+  type: ai-model
+  owner: user:{{ values.modelOwner }}
+  lifecycle: production
+  dependencyOf: 
+    - component:{{ values.modelServerName }}
+  profile:
+    displayName: "{{ values.modelDisplayName }}"

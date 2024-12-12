@@ -1,0 +1,8 @@
+site_name: 'Documentation'
+
+nav:
+  - Access & Usage Information: index.md
+  - Usage Disclaimer: usage.md
+
+plugins:
+  - techdocs-core

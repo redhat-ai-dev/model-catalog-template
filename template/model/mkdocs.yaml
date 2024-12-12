@@ -1,0 +1,10 @@
+site_name: 'Documentation'
+
+nav:
+  - Model Information: index.md
+  - Model Usage: usage.md
+  - Training Information: training.md
+  - Ethics: ethics.md
+
+plugins:
+  - techdocs-core
