@@ -3,7 +3,7 @@ kind: Resource
 metadata:
   name: {{ values.modelName }}
   annotations:
-    backstage.io/techdocs-ref: dir:{{ values.modelName }}
+    backstage.io/techdocs-ref: dir:docs
   description: '{{ values.modelDescription }}'
   links:
     - url: {{ values.modelURL }}
@@ -22,12 +22,10 @@ metadata:
       title: {{ values.modelLicense }} License
       type: website
       icon: WebAsset
-  tags: {{ values.modelTags }}
+  tags: [{{ values.modelTags }}]
 spec:
   type: ai-model
   owner: user:{{ values.modelOwner }}
   lifecycle: production
-  dependencyOf: 
+  dependencyOf:
     - component:{{ values.modelServerName }}
-  profile:
-    displayName: "{{ values.modelDisplayName }}"

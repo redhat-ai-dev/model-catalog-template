@@ -1,0 +1,6 @@
+{
+	"this": "is",
+	"a": ["json", "file"],
+  "modelUsage": "Example usage text",
+	"ok": true
+}

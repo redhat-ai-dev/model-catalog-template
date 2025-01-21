@@ -1,3 +1,3 @@
-# **Usage Examples**
+# **Usage**
 
 {{ values.modelUsage }}
