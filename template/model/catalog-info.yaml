@@ -3,7 +3,7 @@ kind: Resource
 metadata:
   name: {{ values.modelName }}
   annotations:
-    backstage.io/techdocs-ref: dir:docs
+    backstage.io/techdocs-ref: dir:./
   description: '{{ values.modelDescription }}'
   links:
     - url: {{ values.modelURL }}

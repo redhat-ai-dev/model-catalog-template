@@ -14,7 +14,7 @@ metadata:
       title: API URL
       type: website
       icon: WebAsset
-  tags: {{ values.modelServerTags }}
+  tags: [{{ values.modelServerTags }}]
 spec:
   type: model-server
   owner: user:{{ values.modelServerOwner }}
@@ -26,9 +26,9 @@ spec:
     - api:{{ values.modelServerAPIName }}
   {%- endif %}
   profile:
-    displayName: {{ values.modelServerDisplayName }}
----
+    displayName: {{ values.modelServerName }}
 {%- if values.modelServerAPI %}
+---
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:

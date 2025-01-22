@@ -3,7 +3,7 @@ kind: Resource
 metadata:
   name: ibm-granite-8b
   annotations:
-    backstage.io/techdocs-ref: dir:docs
+    backstage.io/techdocs-ref: dir:./
   description: 'The IBM Granite 8b code instruct model, deployed on vLLM'
   links:
     - url: https://model-server.example.com
