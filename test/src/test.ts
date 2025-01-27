@@ -73,6 +73,28 @@ describe('catalog model server template tests', () => {
 
         testModelServerCatalogDefaults(path.join("test_data", "model-server", "001-model-server-defaults-no-api"), modelServerTemplateValues);
     });
+
+    test('002-model-server-defaults-all', () => {
+        let modelServerTemplateValues = {
+            "values": {
+                "modelServerName": "developer-model-service",
+                "modelServerDescription": "Developer model service running Red Hat OpenShift providing a variety of LLMs. The models are available over a simple OpenShift route, providing an easy way to quickly test out new models.",
+                "modelServerURL": "https://ibm-granite-8b-code-instruct-3scale-apicast-production.apps.domain.com",
+                "modelServerAPIURL": "https://api.model-server.example.com",
+                "modelServerTags": ["granite-code", "vllm", "llm", "developer-model-service"],
+                "modelServerOwner": "rhdh-user",
+                "modelServerAPI": true,
+                "modelServerAuthentication": "In order to gain access to the model server you will need to sign in with your SSO credentials by selecting Google auth. Once you have signed in you are able to generate a token by navigating to *Apps and API Keys* on the top ribbon and hitting *Create new Application*. Once a token has been generated, you will be provided with the API server URL.",
+                "modelServerAPIDescription": "The Developer Model Service uses an Open API compatible API to expose its inference service",
+                "modelServerAPITags": ["vllm", "openai", "openapi"],
+                "modelServerAPIType": "openapi",
+                "modelServerUsage": "This model server is for test purposes only.",
+                "modelServerAPISpec": "https://raw.githubusercontent.com/redhat-ai-dev/model-catalog-example/refs/heads/main/developer-model-service/openapi.json",
+            }
+        };
+
+        testModelServerCatalogDefaults(path.join("test_data", "model-server", "002-model-server-defaults-all"), modelServerTemplateValues);
+    });
 });
 
 // renderTemplates takes in a given templated file, and a list of json-formatted values, and returns the rendered template
@@ -145,4 +167,20 @@ function testModelServerCatalogDefaults(testFolderPath: string, values: object) 
 
     // Validate the rendered catalog-info.yaml matches
     TestFileMatchesTemplate(catalogInfopath, catalogInfoTemplatePath, values);
+}
+
+// testModelCatalogEntity renders each of the template files in the model entity template, and validates they 
+function testModelServerCatalogTechdocs(testFolderPath: string, values: object) {
+    let catalogInfoName = "catalog-info.yaml";
+    let modelTemplatePath = path.join("../", "template", "model");
+
+    // Validate the rendered index.md techdoc
+    let indexTechdocPath = path.join(testFolderPath, "docs", "index.md");
+    let indexTemplatePath = path.join(modelTemplatePath, "docs", "index.md");
+    TestFileMatchesTemplate(indexTechdocPath, indexTemplatePath, values);
+
+    // Validate the rendered usage.md techdoc
+    let usageTechdocPath = path.join(testFolderPath, "docs", "usage.md");
+    let usageTemplatePath = path.join(modelTemplatePath, "docs", "usage.md");
+    TestFileMatchesTemplate(usageTechdocPath, usageTemplatePath, values);
 }

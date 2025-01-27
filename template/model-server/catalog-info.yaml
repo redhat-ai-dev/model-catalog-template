@@ -21,9 +21,9 @@ spec:
   lifecycle: production
   {%- if values.modelServerAPI %}
   providesApis:
-    - {{ values.modelServerAPIName }}
+    - {{ values.modelServerName }}
   dependsOn:
-    - api:{{ values.modelServerAPIName }}
+    - api:{{ values.modelServerName }}
   {%- endif %}
   profile:
     displayName: {{ values.modelServerName }}
@@ -32,9 +32,9 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: {{ values.modelServerAPIName }}
+  name: {{ values.modelServerName }}
   description: '{{ values.modelServerAPIDescription }}'
-  tags: {{ values.modelServerAPITags }}
+  tags: [{{ values.modelServerAPITags }}]
   links:
     - url: {{ values.modelServerAPIURL }}
       title: API URL
