@@ -14,7 +14,7 @@ This subdirectory contains test code for the Nunjucks templates in this reposito
 
 ## Adding more tests
 
-1) Describe test case and inputs, based on the ]format used by jest](https://jestjs.io/docs/getting-started):
+1) Describe test case and inputs, based on the [format used by jest](https://jestjs.io/docs/getting-started):
 
 <img width="815" alt="Image" src="https://github.com/user-attachments/assets/2f86e045-5c71-4fef-a750-0d4841f8b11e" />
 
