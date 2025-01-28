@@ -3,6 +3,12 @@ import util from 'util';
 import path from 'path';
 import * as fs from 'fs';
 
+const catalogInfoName = "catalog-info.yaml";
+const indexTechdocName = "index.md";
+const ethicsTechdocName = "ethics.md";
+const usageTechdocName = "usage.md";
+const trainingTechdocName = "training.md";
+
 describe('catalog model template tests', () => {
     // Test default values with minimum set of templated files (catalog-info.yaml and index.md)
     test('001-model-required-values-only', () => {
@@ -116,7 +122,6 @@ function TestFileMatchesTemplate(testFilePath: string, templateFilePath: string,
 
 // testModelCatalogDefaults renders each of the template files in the model entity template, and validates they match
 function testModelCatalogDefaults(testFolderPath: string, values: object) {
-    let catalogInfoName = "catalog-info.yaml";
     let catalogInfopath = path.join(testFolderPath, catalogInfoName);
     let modelTemplatePath = path.join("../", "template", "model");
     let catalogInfoTemplatePath = path.join(modelTemplatePath, catalogInfoName);
@@ -125,34 +130,33 @@ function testModelCatalogDefaults(testFolderPath: string, values: object) {
     TestFileMatchesTemplate(catalogInfopath, catalogInfoTemplatePath, values);
 
     // Validate the rendered index.md techdoc
-    let indexTechdocPath = path.join(testFolderPath, "docs", "index.md");
-    let indexTemplatePath = path.join(modelTemplatePath, "docs", "index.md");
+    let indexTechdocPath = path.join(testFolderPath, "docs", indexTechdocName);
+    let indexTemplatePath = path.join(modelTemplatePath, "docs", indexTechdocName);
     TestFileMatchesTemplate(indexTechdocPath, indexTemplatePath, values);
 }
 
 // testModelCatalogEntity renders each of the template files in the model entity template, and validates they 
 function testModelCatalogTechdocs(testFolderPath: string, values: object) {
-    let catalogInfoName = "catalog-info.yaml";
     let modelTemplatePath = path.join("../", "template", "model");
 
     // Validate the rendered index.md techdoc
-    let indexTechdocPath = path.join(testFolderPath, "docs", "index.md");
-    let indexTemplatePath = path.join(modelTemplatePath, "docs", "index.md");
+    let indexTechdocPath = path.join(testFolderPath, "docs", indexTechdocName);
+    let indexTemplatePath = path.join(modelTemplatePath, "docs", indexTechdocName);
     TestFileMatchesTemplate(indexTechdocPath, indexTemplatePath, values);
 
     // Validate the rendered ethics.md techdoc
-    let ethicsTechdocPath = path.join(testFolderPath, "docs", "ethics.md");
-    let ethicsTemplatePath = path.join(modelTemplatePath, "docs", "ethics.md");
+    let ethicsTechdocPath = path.join(testFolderPath, "docs", ethicsTechdocName);
+    let ethicsTemplatePath = path.join(modelTemplatePath, "docs", ethicsTechdocName);
     TestFileMatchesTemplate(ethicsTechdocPath, ethicsTemplatePath, values);
 
     // Validate the rendered training.md techdoc
-    let trainingTechdocPath = path.join(testFolderPath, "docs", "training.md");
-    let trainingTemplatePath = path.join(modelTemplatePath, "docs", "training.md");
+    let trainingTechdocPath = path.join(testFolderPath, "docs", trainingTechdocName);
+    let trainingTemplatePath = path.join(modelTemplatePath, "docs", trainingTechdocName);
     TestFileMatchesTemplate(trainingTechdocPath, trainingTemplatePath, values);
 
     // Validate the rendered usage.md techdoc
-    let usageTechdocPath = path.join(testFolderPath, "docs", "usage.md");
-    let usageTemplatePath = path.join(modelTemplatePath, "docs", "usage.md");
+    let usageTechdocPath = path.join(testFolderPath, "docs", usageTechdocName);
+    let usageTemplatePath = path.join(modelTemplatePath, "docs", usageTechdocName);
     TestFileMatchesTemplate(usageTechdocPath, usageTemplatePath, values);
 }
 
@@ -160,7 +164,6 @@ function testModelCatalogTechdocs(testFolderPath: string, values: object) {
 
 // testModelServerCatalogDefaults renders each of the template files in the model server entity template, and validates they match
 function testModelServerCatalogDefaults(testFolderPath: string, values: object) {
-    let catalogInfoName = "catalog-info.yaml";
     let catalogInfopath = path.join(testFolderPath, catalogInfoName);
     let modelServerTemplatePath = path.join("../", "template", "model-server");
     let catalogInfoTemplatePath = path.join(modelServerTemplatePath, catalogInfoName);
@@ -171,16 +174,15 @@ function testModelServerCatalogDefaults(testFolderPath: string, values: object) 
 
 // testModelCatalogEntity renders each of the template files in the model entity template, and validates they 
 function testModelServerCatalogTechdocs(testFolderPath: string, values: object) {
-    let catalogInfoName = "catalog-info.yaml";
     let modelTemplatePath = path.join("../", "template", "model");
 
     // Validate the rendered index.md techdoc
-    let indexTechdocPath = path.join(testFolderPath, "docs", "index.md");
-    let indexTemplatePath = path.join(modelTemplatePath, "docs", "index.md");
+    let indexTechdocPath = path.join(testFolderPath, "docs", indexTechdocName);
+    let indexTemplatePath = path.join(modelTemplatePath, "docs", indexTechdocName);
     TestFileMatchesTemplate(indexTechdocPath, indexTemplatePath, values);
 
     // Validate the rendered usage.md techdoc
-    let usageTechdocPath = path.join(testFolderPath, "docs", "usage.md");
-    let usageTemplatePath = path.join(modelTemplatePath, "docs", "usage.md");
+    let usageTechdocPath = path.join(testFolderPath, "docs", usageTechdocName);
+    let usageTemplatePath = path.join(modelTemplatePath, "docs", usageTechdocName);
     TestFileMatchesTemplate(usageTechdocPath, usageTemplatePath, values);
 }
