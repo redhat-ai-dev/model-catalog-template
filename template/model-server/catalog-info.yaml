@@ -14,27 +14,27 @@ metadata:
       title: API URL
       type: website
       icon: WebAsset
-  tags: {{ values.modelServerTags }}
+  tags: [{{ values.modelServerTags }}]
 spec:
   type: model-server
   owner: user:{{ values.modelServerOwner }}
   lifecycle: production
   {%- if values.modelServerAPI %}
   providesApis:
-    - {{ values.modelServerAPIName }}
+    - {{ values.modelServerName }}
   dependsOn:
-    - api:{{ values.modelServerAPIName }}
+    - api:{{ values.modelServerName }}
   {%- endif %}
   profile:
-    displayName: {{ values.modelServerDisplayName }}
----
+    displayName: {{ values.modelServerName }}
 {%- if values.modelServerAPI %}
+---
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: {{ values.modelServerAPIName }}
+  name: {{ values.modelServerName }}
   description: '{{ values.modelServerAPIDescription }}'
-  tags: {{ values.modelServerAPITags }}
+  tags: [{{ values.modelServerAPITags }}]
   links:
     - url: {{ values.modelServerAPIURL }}
       title: API URL

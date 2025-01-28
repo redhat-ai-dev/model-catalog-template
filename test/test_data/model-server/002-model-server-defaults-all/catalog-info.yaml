@@ -1,0 +1,45 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: developer-model-service
+  annotations:
+    backstage.io/techdocs-ref: dir:./
+  description: 'Developer model service running Red Hat OpenShift providing a variety of LLMs. The models are available over a simple OpenShift route, providing an easy way to quickly test out new models.'
+  links:
+    - url: https://ibm-granite-8b-code-instruct-3scale-apicast-production.apps.domain.com
+      title: Access
+      type: website
+      icon: WebAssett
+    - url: https://api.model-server.example.com
+      title: API URL
+      type: website
+      icon: WebAsset
+  tags: [granite-code,vllm,llm,developer-model-service]
+spec:
+  type: model-server
+  owner: user:rhdh-user
+  lifecycle: production
+  providesApis:
+    - developer-model-service
+  dependsOn:
+    - api:developer-model-service
+  profile:
+    displayName: developer-model-service
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: developer-model-service
+  description: 'The Developer Model Service uses an Open API compatible API to expose its inference service'
+  tags: [vllm,openai,openapi]
+  links:
+    - url: https://api.model-server.example.com
+      title: API URL
+      type: website
+      icon: WebAsset
+spec:
+  type: openapi
+  owner: user:rhdh-user
+  lifecycle: production
+  definition: |
+    https://raw.githubusercontent.com/redhat-ai-dev/model-catalog-example/refs/heads/main/developer-model-service/openapi.json

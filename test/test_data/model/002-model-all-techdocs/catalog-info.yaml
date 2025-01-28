@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: meta-llama-32-1b
+  annotations:
+    backstage.io/techdocs-ref: dir:./
+  description: 'The Llama 3.2 collection of multilingual large language models (LLMs) is a collection of pretrained and instruction-tuned generative models in 1B and 3B sizes (text in/text out). The Llama 3.2 instruction-tuned text only models are optimized for multilingual dialogue use cases, including agentic retrieval and summarization tasks. They outperform many of the available open source and closed chat models on common industry benchmarks.'
+  links:
+    - url: https://model-service.apps.example.com
+      title: Access
+      type: website
+      icon: WebAssett
+    - url: https://api.model-service.apps.example.com
+      title: API URL
+      type: website
+      icon: WebAsset
+    - url: https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct
+      title: Model Repository
+      type: website
+      icon: WebAsset
+    - url: https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/LICENSE
+      title: Llama 3.2 Community License
+      type: website
+      icon: WebAsset
+  tags: [genai,meta,llm,llama,conversational,multilingual,task-text-generation,1b]
+spec:
+  type: ai-model
+  owner: user:exampleuser
+  lifecycle: production
+  dependencyOf:
+    - component:ollama-model-service

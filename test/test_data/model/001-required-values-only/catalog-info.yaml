@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ibm-granite-8b
+  annotations:
+    backstage.io/techdocs-ref: dir:./
+  description: 'The IBM Granite 8b code instruct model, deployed on vLLM'
+  links:
+    - url: https://model-server.example.com
+      title: Access
+      type: website
+      icon: WebAssett
+    - url: https://api.model-server.example.com
+      title: API URL
+      type: website
+      icon: WebAsset
+    - url: https://huggingface.co/ibm-granite/granite-3.1-8b-instruct
+      title: Model Repository
+      type: website
+      icon: WebAsset
+    - url: https://huggingface.co/datasets/choosealicense/licenses/blob/main/markdown/apache-2.0.md
+      title: Apache-2 License
+      type: website
+      icon: WebAsset
+  tags: [granite,ibm,huggingface,llm]
+spec:
+  type: ai-model
+  owner: user:rhdh-user
+  lifecycle: production
+  dependencyOf:
+    - component:vllm

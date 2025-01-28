@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ollama-model-service
+  annotations:
+    backstage.io/techdocs-ref: dir:./
+  description: 'Ollama-based model service running Red Hat OpenShift providing a variety of LLMs. The models are available over a simple OpenShift route, providing an easy way to quickly test out new models.'
+  links:
+    - url: https://model-server.example.com
+      title: Access
+      type: website
+      icon: WebAssett
+    - url: https://api.model-server.example.com
+      title: API URL
+      type: website
+      icon: WebAsset
+  tags: [genai,gemma2,llama3,mistral,phi,granite-code,ollama,llm,ollama-model-service]
+spec:
+  type: model-server
+  owner: user:rhdh-user
+  lifecycle: production
+  profile:
+    displayName: ollama-model-service
